@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+// Create a new node
+struct Node* createNode(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+struct Node* insert(int val){
+    if(root==NULL){
+        return createNode();
+    }
+    if(val<root->data)
+        root->left=insert(root->left, val);//2000
+    else
+        root->right=insert(root->right, val);//2000
+    return root;
+}
+void inOrder(struct Node* root){
+    if(root!=NULL){
+        inOrder(root->left);//a 
+        printf("%d",root->data);//+
+        inOrder(root->right);//b
+    }
+}
+void preOrder(struct Node* root){
+    if(root!=NULL){
+        printf("%d",root->data);//+
+        preOrder(root->left);//a 
+        preOrder(root->right);//b
+    }
+}
+void preOrder(struct Node* root){
+    if(root!=NULL){
+        postOrder(root->left);//a 
+        postOrder(root->right);//b
+        printf("%d",root->data);//+
+    }
+}
+int main(){
+    struct Node* root=NULL;
+}
